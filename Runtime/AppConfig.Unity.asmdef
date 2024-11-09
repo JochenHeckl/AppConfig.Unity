@@ -1,7 +1,11 @@
 {
     "name": "AppConfig.Unity",
     "rootNamespace": "JH.AppConfig",
-    "references": [],
+    "references": [
+        "Unity.Logging",
+        "Unity.Collections",
+        "Unity.Burst"
+    ],
     "includePlatforms": [],
     "excludePlatforms": [],
     "allowUnsafeCode": false,

@@ -27,18 +27,13 @@ namespace JH.AppConfig
             return new AppConfig<ConfigDataType>()
             {
                 ConfigFilePath = configFilePath,
-                Data = ReadConfigData(configFilePath)
+                Data = ReadConfigData(configFilePath),
             };
         }
 
         public void Save()
         {
             WriteConfigData();
-        }
-
-        public void EditConfigData()
-        {
-            EditorUtility.OpenWithDefaultApp(ConfigFilePath);
         }
 
         private static ConfigDataType ReadConfigData(string configFileName)
@@ -69,7 +64,7 @@ namespace JH.AppConfig
         {
             var directory = Path.GetDirectoryName(ConfigFilePath);
 
-            if ((directory != null ) && !Directory.Exists(directory))
+            if ((directory != null) && !Directory.Exists(directory))
             {
                 Directory.CreateDirectory(directory);
             }
@@ -84,9 +79,9 @@ namespace JH.AppConfig
 
         private static string MakeConfigFilePath(string projectName, string configFileName)
         {
-            var homeDirectory = Environment.GetFolderPath(Environment.SpecialFolder.UserProfile);
-            var appDirectory = Path.Combine(homeDirectory, projectName);
-            var configFilePathName = Path.Combine(appDirectory, configFileName);
+            var appDirectory = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData);
+            var projectDirectory = Path.Combine(appDirectory, projectName);
+            var configFilePathName = Path.Combine(projectDirectory, configFileName);
 
             return configFilePathName;
         }

@@ -1,8 +1,15 @@
 {
     "name": "AppConfig.Unity.Editor",
     "rootNamespace": "JH.AppConfig.Editor",
-    "references": [],
-    "includePlatforms": [],
+    "references": [
+        "AppConfig.Unity",
+        "Unity.Logging",
+        "Unity.Burst",
+        "Unity.Collections"
+    ],
+    "includePlatforms": [
+        "Editor"
+    ],
     "excludePlatforms": [],
     "allowUnsafeCode": false,
     "overrideReferences": false,
